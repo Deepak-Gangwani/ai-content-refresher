@@ -1,4 +1,4 @@
-# 🚀 Challenge: AI Content Refresher for SEO  
+# 🚀 Challenge: AI Content Refresher for SEO  | https://youtu.be/C9rWiSwXgvY
 
 ## 📌 Background  
 Blog posts are often a company’s biggest driver of organic traffic. However, older posts gradually lose visibility because:  
