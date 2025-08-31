@@ -150,21 +150,21 @@ const handleConfirm = async () => {
           <h2 className="text-xl font-semibold text-blue-800 dark:text-blue-300 border-b border-blue-200 dark:border-blue-800 pb-2">AI-Generated SEO Version</h2>
           <div>
             <h3 className="font-medium text-gray-700 dark:text-gray-300">Title</h3>
-            <DiffViewer oldText={originalBlog.title} newText={previewBlog.title} />
+            <DiffViewer oldText={originalBlog.title} newText={previewBlog.preview_title} />
           </div>
           <div>
             <h3 className="font-medium text-gray-700 dark:text-gray-300">Content</h3>
             <div className="max-h-60 overflow-y-auto">
-              <DiffViewer oldText={originalBlog.content} newText={previewBlog.content} />
+              <DiffViewer oldText={originalBlog.content} newText={previewBlog.preview_content} />
             </div>
           </div>
           <div>
             <h3 className="font-medium text-gray-700 dark:text-gray-300">Meta Description</h3>
-            <DiffViewer oldText={originalBlog.meta_tags?.description} newText={previewBlog.meta_tags?.description} />
+            <DiffViewer oldText={originalBlog.meta_tags?.description} newText={previewBlog.preview_meta_tags?.description} />
           </div>
           <div>
             <h3 className="font-medium text-gray-700 dark:text-gray-300">Keywords</h3>
-            <DiffViewer oldText={originalBlog.meta_tags?.keywords} newText={previewBlog.meta_tags?.keywords} />
+            <DiffViewer oldText={originalBlog.meta_tags?.keywords} newText={previewBlog.preview_meta_tags?.keywords} />
           </div>
         </div>
       </div>
