@@ -64,31 +64,29 @@ const SEOPreview = () => {
     fetchData();
   }, [id]);
 
-  const handleConfirm = async () => {
-    // if (!user?.is_superuser) {
-    //   setError('You do not have permission to perform this action.');
-    //   return;
-    // }
-    setConfirming(true);
-    setError('');
-    try {
-      await seoAPI.confirmRefresh(id);
-      navigate('/admin/seo-management', {
-        state: { message: `Blog "${originalBlog.title}" has been successfully refreshed.` },
-      });
-    } catch (err) {
-      const errorMessage = getApiErrorMessage(err, 'confirm blog refresh');
-      if (errorMessage.includes('Network Error')) {
-        console.warn(`Simulating SEO confirmation for Blog ID: ${id}`);
-        navigate('/admin/seo-management', {
-          state: { message: `Simulated refresh for blog "${originalBlog.title}" was successful.` },
-        });
-      } else {
-        setError(errorMessage);
-        setConfirming(false);
+const handleConfirm = async () => {
+  setConfirming(true);
+  setError('');
+  try {
+    await seoAPI.confirmRefresh(id, {
+      title: previewBlog.preview_title,
+      content: previewBlog.preview_content,
+      meta_tags: {
+        description: previewBlog.preview_meta_tags?.description,
+        keywords: previewBlog.preview_meta_tags?.keywords,
       }
-    }
-  };
+    });
+
+    navigate('/admin/seo-management', {
+      state: { message: `Blog "${originalBlog.title}" has been successfully refreshed.` },
+    });
+  } catch (err) {
+    const errorMessage = getApiErrorMessage(err, 'confirm blog refresh');
+    setError(errorMessage);
+    setConfirming(false);
+  }
+};
+
 
   if (loading) {
     return (

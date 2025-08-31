@@ -155,7 +155,8 @@ export const blogAPI = {
 // SEO APIs
 export const seoAPI = {
   previewRefresh: (id) => api.get(`/refresh-blog/${id}/preview/`),
-  confirmRefresh: (id) => api.post(`/refresh-blog/${id}/confirm/`),
+  confirmRefresh: (id, data) => api.post(`/refresh-blog/${id}/confirm/`, data),
 };
+
 
 export default api;
